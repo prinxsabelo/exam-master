@@ -1,0 +1,11 @@
+.option {
+  cursor: pointer;
+}
+.option:hover {
+  background-color: rgb(210, 208, 214);
+  color: #1216ec;
+}
+.option-pick {
+  background-color: #3f51b5 !important;
+  color: white;
+}
