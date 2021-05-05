@@ -47,6 +47,9 @@ export function ManageExam({ exams, courses, getExams, getCourses, ...props }) {
     if (!exam.questions_display) {
       exam.questions_display = 0;
     }
+    if(exam.count_down == ""){
+      exam.count_down = 600;
+    }
     props.saveExam(exam, props.history);
   }
   return (

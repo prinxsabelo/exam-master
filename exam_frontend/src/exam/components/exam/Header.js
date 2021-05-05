@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+  import React, { useState } from "react";
 import { AppBar, Typography, Button } from "@material-ui/core";
 import Drawer from "@material-ui/core/Drawer";
 import { connect } from "react-redux";
@@ -47,11 +47,9 @@ export function Header({
   ...props
 }) {
   const index = exam_questions.findIndex((x) => x.id === question.id);
-
   const classes = useStyles();
   const [timer, setTimer] = useState(exam.timer);
-
-  timer > 0 ? setTimeout(() => setTimer(timer - 1), 1000) : saveTimer();
+  if(exam_questions.length > 0)  timer > 0 ? setTimeout(() => setTimer(timer - 1), 1000) : saveTimer();
 
   function convertNumToTime(num) {
     num = Number(num);
@@ -88,7 +86,6 @@ export function Header({
     // props.history.push(`/exam/${exam.id}/result`);
   }
   const viewTimer = convertNumToTime(timer);
-
   return (
     <div className={classes.root}>
       <AppBar position="fixed" className={classes.appBar}>
@@ -117,42 +114,61 @@ export function Header({
           />
         </div>
       </Drawer>
-      <main className={classes.content} onClick={() => saveTimer()}>
-        <ExamQuestion
-          question={question}
-          questions={exam_questions}
-          handleOptionClick={handleOptionClick}
-        />
-        {index > 0 && (
-          <Button
-            className="float-left mt-3 mr-3"
-            variant="contained"
-            color="primary"
-            onClick={(e) => prevQuestion()}
-          >
-            Prev Question
-          </Button>
-        )}
-        {index < exam_questions.length - 1 && (
-          <Button
-            className="float-left mt-3"
-            variant="contained"
-            color="primary"
-            onClick={(e) => nextQuestion()}
-          >
-            Next Question
-          </Button>
-        )}
+      {exam_questions.length > 0 ?
+       <main className={classes.content} onClick={() => saveTimer()}>
+       <ExamQuestion
+         question={question}
+         questions={exam_questions}
+         handleOptionClick={handleOptionClick}
+       />
+       {index > 0 && (
+         <Button
+           className="float-left mt-3 mr-3"
+           variant="contained"
+           color="primary"
+           onClick={(e) => prevQuestion()}
+         >
+           Prev Question
+         </Button>
+       )}
+       {index < exam_questions.length - 1 && (
+         <Button
+           className="float-left mt-3"
+           variant="contained"
+           color="primary"
+           onClick={(e) => nextQuestion()}
+         >
+           Next Question
+         </Button>
+       )}
 
-        <Button
-          className="float-right mt-3"
-          variant="contained"
-          color="secondary"
-          onClick={finish}
-        >
-          Finish Exam
-        </Button>
-      </main>
+       <Button
+         className="float-right mt-3"
+         variant="contained"
+         color="secondary"
+         onClick={finish}
+       >
+         Finish Exam
+       </Button>
+     </main>:
+      <div  className=" mt-5 pt-5" >
+          <div className="m-5 ">
+             NO QUESTION FOUND
+             <div>
+
+             <Button
+              className="float-right mt-3"
+              variant="contained"
+              color="secondary"
+              onClick={finish}
+            >
+              Cancel
+            </Button>
+            </div>
+          </div>
+       </div>
+      }
+     
     </div>
   );
 }

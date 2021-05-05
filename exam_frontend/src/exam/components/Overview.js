@@ -16,6 +16,7 @@ export function Overview({
     }
   });
   function startExam(exam_id) {
+    // alert(exam_id)
     // console.log(props.match.path);
     props.history.push(`/exam/${exam_id}/questions`);
   }

@@ -5,7 +5,8 @@ import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
 import { Typography } from '@material-ui/core';
 
-const LoginForm = ({ onSubmit, onChange, auth, user, authResponse }) => {
+const LoginForm = ({ onSubmit, onChange, auth, user }) => {
+  // console.log(authResponse)
   return (
     <Container
       maxWidth="sm"
@@ -50,14 +51,15 @@ const LoginForm = ({ onSubmit, onChange, auth, user, authResponse }) => {
             </Grid>
             <button type="submit" className="btn btn-lg btn-primary ml-2">LogIn</button>
           </form>
-          {authResponse}
+
+          {/* {authResponse} */}
         </Grid>
       </Grid>
     </Container>
   );
 };
 LoginForm.propTypes = {
-  authResponse: PropTypes.string.isRequired,
+  // authResponse: PropTypes.string.isRequired,
   auth: PropTypes.object.isRequired,
   onSubmit: PropTypes.func.isRequired,
   onChange: PropTypes.func.isRequired,

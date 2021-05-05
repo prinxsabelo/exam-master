@@ -6,6 +6,7 @@ import Student from "./student/Student";
 import StudentRegister from './auth/StudentRegister';
 import StudentVerify from './auth/StudentVerify';
 import Exam from "./exam/Exam";
+import { StudentLogin } from "./auth/StudentLogin";
 
 function App(props) {
   return (
@@ -17,6 +18,7 @@ function App(props) {
         <Route path="/exam" component={Exam} />
         <Route path="/register" component={StudentRegister} />
         <Route path="/verify" component={StudentVerify} />
+        <Route path="/login" component={StudentLogin} />
       </Switch>
     </BrowserRouter>
   );

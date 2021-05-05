@@ -8,7 +8,7 @@ const Student = (props) => {
   return (
     <div>
       <Switch>
-        <Route exact path={`${props.match.path}`} component={StudentVerify} />
+        <Route exact path={`${props.match.path}`} component={StudentLogin} />
         <Route path={`${props.match.path}/login`} component={StudentLogin} />
         <Route path={`${props.match.path}/main`} component={StudentMain} />
       </Switch>

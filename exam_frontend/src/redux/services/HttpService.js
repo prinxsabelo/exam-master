@@ -1,7 +1,7 @@
 class HttpService {
-  admin_url = "http://localhost:8000/api/admin";
-  exam_url = "http://localhost:8000/api/exam";
-  student_url = "http://localhost:8000/api/student";
+  admin_url = "https://simpudesk.com/exam-master/exam_backend/public/api/admin";
+  exam_url = "https://simpudesk.com/exam-master/exam_backend/public/api/exam";
+  student_url = "https://simpudesk.com/exam-master/exam_backend/public/api/student";
 
   // You can work here Dev.. on the code below..
   postStudentData = async (item, added_url) => {

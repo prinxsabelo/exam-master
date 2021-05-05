@@ -106,8 +106,10 @@ export function StudentsPage({
     saveStudent(student, props.history);
     initStudent();
     getStudents();
-    console.log(student);
-  }
+    // if(student){
+
+    // }
+    }
   function initForm() {
     initStudent();
   }

@@ -32,6 +32,7 @@ class courseController extends Controller
           
             $admin_token = $request->token;
             $admin = auth("admin")->authenticate($admin_token);
+            
             if($admin)
             {   
                 $course;
