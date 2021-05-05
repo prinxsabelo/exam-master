@@ -62,10 +62,12 @@ export const saveStudent = (student, history) => {
         student.id
           ? dispatch(updateStudentSuccess(res.message))
           : dispatch(createStudentSuccess(res.message));
-        setTimeout(() => {
-          history.push("/admin/main/students");
-        }, 2000);
+        // setTimeout(() => {
+        //   history.push("/admin/main/students");
+        // }, 2000);
+
       }
+      window.location.reload(false);
     });
   };
 };
@@ -92,9 +94,14 @@ export const resultDetail = (exam) => {
 };
 
 export const startExam = (exam) => {
+  // alert('xxx');
   return (dispatch) => {
     StartExamService(exam).then((res) => {
-      dispatch(startExamSuccess(res.exam_questions));
+      if(res && res.exam_questionsp){
+        dispatch(startExamSuccess(res.exam_questions));
+      }     else{
+        alert('not regsterd')
+      }
     });
   };
 };

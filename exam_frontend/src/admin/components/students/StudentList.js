@@ -1,3 +1,4 @@
+
 import React from "react";
 
 import { Grid } from "@material-ui/core";
@@ -11,10 +12,10 @@ function StudentList({ students, student, onClick }) {
         </div>
       )}
       <div className="container-fluid ">
-        {students.map((student) => (
+        {students.map((student,id) => (
           <div
             className="row"
-            key={student.id}
+            key={id}
             onClick={() => onClick(student.id)}
           >
             <div className="col-md-12">

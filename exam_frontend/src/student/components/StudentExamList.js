@@ -1,5 +1,6 @@
 import React from "react";
 const StudentExamList = ({ exams, handleExamClick }) => {
+  console.log(exams)
   return (
     <div className="container shadow-lg p-2">
       {exams.length > 0 ? (
@@ -8,15 +9,15 @@ const StudentExamList = ({ exams, handleExamClick }) => {
             <div key={exam.id}>
               {exam.finish === 0 ?
                 <div
-                  className="row justify-content-center mt-5"
+                  className="row justify-content-center p-4"
                   key={exam.id}
                   onClick={(e) => handleExamClick(exam)}
                 >
                   <div
-                    className="col-md-12 text-uppercase h5 text-center"
+                    className="col-md-12 text-uppercase h5 text-center p-3 shadow"
                     style={{ cursor: "pointer" }}
                   >
-                    {exam.exam_title}
+                    {exam.exam_title} - {exam.level}
                   </div>
                 </div>
                 :

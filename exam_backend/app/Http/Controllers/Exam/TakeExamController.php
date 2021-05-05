@@ -24,12 +24,17 @@ class TakeExamController extends Controller
                 $student_id = $student->id;
                 
                 $exam = Result::join('students','students.id','=','results.student_id')
-                                ->join('exams','exams.id','=','results.exam_id')
+                               ->join('courses','courses.level_id','=','students.level_id')
+                                ->join('exams','exams.course_id','=','courses.id')
+                                ->join('levels','levels.id','=','courses.level_id')
+                                // ->join('exams','exams.id','=','results.exam_id')
+
                                 ->leftJoin('exam_time_trackers','exam_time_trackers.student_id','=','results.student_id')
                                 
-                                ->select('lastname','firstname','exam_title',
+                                ->select('lastname','firstname','exam_title','students.level_id',
                                         'exams.id','exams.instruction',
                                         'students.id as student_id','exams.count_down',
+                                        'levels.level',
                                         'results.finish',
                                         'exam_time_trackers.timer'
                                         )->distinct()

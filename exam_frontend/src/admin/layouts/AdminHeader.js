@@ -44,6 +44,9 @@ const AdminHeader = (props) => {
           <NavLink to="/admin/main/students">
             <Button className="text-white font-weight-bold">Students</Button>
           </NavLink>
+          <NavLink to="/admin">
+            <Button className="text-white font-weight-bold">LogOut</Button>
+          </NavLink>
         </Toolbar>
       </AppBar>
       <div style={{ marginTop: "80px" }}></div>

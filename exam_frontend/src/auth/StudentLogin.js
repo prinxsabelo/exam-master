@@ -4,7 +4,11 @@ import { StudentLoginDetail } from "../redux/actions/authActions";
 import LoginForm from "./LoginForm";
 export function StudentLogin(props) {
   const [auth, setAuth] = useState({ ...props.auth });
-  const { authResponse } = props;
+  let authResponse;
+  if(props.authResponse){
+    const { authResponse } = props;
+    console.log(authResponse)
+  }
   function handleSubmit(e) {
     e.preventDefault();
     console.log(auth);
@@ -24,7 +28,7 @@ export function StudentLogin(props) {
       auth={auth}
       onChange={handleChange}
       user="STUDENT"
-      authResponse={authResponse}
+      // authResponse={authResponse}
     />
   );
 }

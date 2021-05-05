@@ -12,6 +12,8 @@ export function StudentVerify(props) {
     auth.templateXML = localStorage.getItem('templateXML')
     console.log(auth);
 
+    console.log(auth, "AUTH")
+    console.log(props, "PROPS")
     props.StudentVerifyDetail(auth, props.history);
   }
   function handleChange(e) {

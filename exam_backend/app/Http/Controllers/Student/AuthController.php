@@ -121,7 +121,7 @@ class AuthController extends Controller
                     "message" => "Email exists already..",
                 ],400);
             }
-            echo json_encode($request->matric_no);
+            // echo json_encode($request->matric_no);
             $regComplete = $this->student->create([
                 'firstname' => $request->firstname,
                 'lastname' => $request->lastname,
